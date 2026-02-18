@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KuaZone | Level Up Your Startup</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bungee&family=Fredoka:wght@400;600&family=JetBrains+Mono&display=swap');
+        
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background-color: #0F172A;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        h1, h2, h3, .bungee { font-family: 'Bungee', cursive; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        /* Gamified Sidebar */
+        .sidebar {
+            background: #1E293B;
+            border-right: 4px solid #334155;
+        }
+
+        .nav-card {
+            background: #334155;
+            border-bottom: 4px solid #000;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .nav-card:hover { transform: scale(1.05); background: #475569; }
+        .nav-card.active { 
+            background: #A855F7; 
+            border-bottom: 4px solid #6B21A8;
+            transform: translateX(10px);
+        }
+
+        /* 3D Button Style */
+        .btn-game {
+            border-bottom: 4px solid #166534;
+            transition: all 0.1s;
+        }
+        .btn-game:active {
+            transform: translateY(4px);
+            border-bottom-width: 0;
+        }
+
+        .tool-view { display: none; }
+        .tool-view.active { display: block; animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+
+        @keyframes popIn {
+            0% { transform: scale(0.9); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Progress Bar */
+        .xp-bar {
+            height: 12px;
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid #334155;
+        }
+    </style>
+</head>
+<body class="flex h-screen w-screen">
+
+    <aside class="sidebar w-72 p-6 flex flex-col">
+        <div class="mb-10">
+            <h1 class="text-3xl text-cyan-400 italic">KuaZone Techpreneur</h1>
+            <div class="mt-4">
+                <div class="flex justify-between text-xs mb-1 uppercase font-bold text-slate-400">
+                    <span>Lvl 12 Techpreneur</span>
+                    <span>XP 450/1000</span>
+                </div>
+                <div class="xp-bar">
+                    <div class="bg-cyan-400 h-full w-[45%]"></div>
+                </div>
+            </div>
+        </div>
+
+        <nav class="space-y-4 flex-1">
+            <div onclick="switchTab('forge')" id="tab-forge" class="nav-card active p-4 rounded-xl flex items-center gap-4">
+                <i class="fa-solid fa-fire-burner text-xl"></i>
+                <span class="font-bold">QUEST LOG</span>
+            </div>
+            <div onclick="switchTab('hunter')" id="tab-hunter" class="nav-card p-4 rounded-xl flex items-center gap-4">
+                <i class="fa-solid fa-radar text-xl text-yellow-400"></i>
+                <span class="font-bold">TREND HUNTER</span>
+            </div>
+            <div onclick="switchTab('lab')" id="tab-lab" class="nav-card p-4 rounded-xl flex items-center gap-4">
+                <i class="fa-solid fa-flask-vial text-xl text-green-400"></i>
+                <span class="font-bold">THE STARTUP LAB</span>
+            </div>
+        </nav>
+
+        <div class="mt-auto bg-black/40 p-4 rounded-xl border-2 border-slate-700">
+            <p class="text-xs font-bold text-slate-500 uppercase mb-2">Inventory</p>
+            <div class="flex gap-2">
+                <div class="w-10 h-10 bg-slate-800 rounded flex items-center justify-center text-yellow-500" title="Python Mastery Badge"><i class="fa-brands fa-python"></i></div>
+                <div class="w-10 h-10 bg-slate-800 rounded flex items-center justify-center text-cyan-500" title="AI Architect Badge"><i class="fa-solid fa-robot"></i></div>
+                <div class="w-10 h-10 bg-slate-800 rounded border-2 border-dashed border-slate-600 flex items-center justify-center text-slate-600 italic">+</div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="flex-1 p-8 overflow-y-auto">
+
+ 
+
+        <section id="view-hunter" class="tool-view">
+            <div class="bg-yellow-400 text-black p-8 rounded-3xl mb-8">
+                <h2 class="text-4xl mb-4 uppercase">Trend Hunter</h2>
+                <p class="font-bold">Use AI to scan what's poppin' on the web. Don't build a flop!</p>
+            </div>
+            
+            <div class="bg-slate-800 p-8 rounded-3xl border-4 border-black shadow-[8px_8px_0_0_#000]">
+                <div class="flex flex-col gap-4">
+                    <label class="bungee text-xl">What industry are we scouting?</label>
+                    <div class="flex gap-4">
+                        <input type="text" placeholder="e.g. Mobile Gaming, Eco-friendly fashion..." class="flex-1 p-4 rounded-xl bg-black text-white border-2 border-slate-600 focus:border-yellow-400 outline-none">
+                        <button class="bg-yellow-400 text-black px-10 py-4 rounded-xl font-bold btn-game border-yellow-700">SCAN</button>
+                    </div>
+                </div>
+
+                <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="text-center p-4 bg-black/40 rounded-2xl border-2 border-yellow-400/20">
+                        <div class="text-3xl font-bold text-yellow-400">FIRE</div>
+                        <p class="text-xs uppercase text-slate-500">Hype Level</p>
+                    </div>
+                    <div class="text-center p-4 bg-black/40 rounded-2xl border-2 border-cyan-400/20">
+                        <div class="text-3xl font-bold text-cyan-400">90%</div>
+                        <p class="text-xs uppercase text-slate-500">Gen-Z Interest</p>
+                    </div>
+                    <div class="text-center p-4 bg-black/40 rounded-2xl border-2 border-green-400/20">
+                        <div class="text-3xl font-bold text-green-400">EASY</div>
+                        <p class="text-xs uppercase text-slate-500">Ease to Build</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       
+
+    </main>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"e3c1c9af36de41759418005494a48906","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
