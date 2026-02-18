@@ -69,50 +69,13 @@
 </head>
 <body class="flex h-screen w-screen">
 
-    <aside class="sidebar w-72 p-6 flex flex-col">
-        <div class="mb-10">
-            <h1 class="text-3xl text-cyan-400 italic">KuaZone Techpreneur</h1>
-            <div class="mt-4">
-                <div class="flex justify-between text-xs mb-1 uppercase font-bold text-slate-400">
-                    <span>Lvl 12 Techpreneur</span>
-                    <span>XP 450/1000</span>
-                </div>
-                <div class="xp-bar">
-                    <div class="bg-cyan-400 h-full w-[45%]"></div>
-                </div>
-            </div>
-        </div>
 
-        <nav class="space-y-4 flex-1">
-            <div onclick="switchTab('forge')" id="tab-forge" class="nav-card active p-4 rounded-xl flex items-center gap-4">
-                <i class="fa-solid fa-fire-burner text-xl"></i>
-                <span class="font-bold">QUEST LOG</span>
-            </div>
-            <div onclick="switchTab('hunter')" id="tab-hunter" class="nav-card p-4 rounded-xl flex items-center gap-4">
-                <i class="fa-solid fa-radar text-xl text-yellow-400"></i>
-                <span class="font-bold">TREND HUNTER</span>
-            </div>
-            <div onclick="switchTab('lab')" id="tab-lab" class="nav-card p-4 rounded-xl flex items-center gap-4">
-                <i class="fa-solid fa-flask-vial text-xl text-green-400"></i>
-                <span class="font-bold">THE STARTUP LAB</span>
-            </div>
-        </nav>
-
-        <div class="mt-auto bg-black/40 p-4 rounded-xl border-2 border-slate-700">
-            <p class="text-xs font-bold text-slate-500 uppercase mb-2">Inventory</p>
-            <div class="flex gap-2">
-                <div class="w-10 h-10 bg-slate-800 rounded flex items-center justify-center text-yellow-500" title="Python Mastery Badge"><i class="fa-brands fa-python"></i></div>
-                <div class="w-10 h-10 bg-slate-800 rounded flex items-center justify-center text-cyan-500" title="AI Architect Badge"><i class="fa-solid fa-robot"></i></div>
-                <div class="w-10 h-10 bg-slate-800 rounded border-2 border-dashed border-slate-600 flex items-center justify-center text-slate-600 italic">+</div>
-            </div>
-        </div>
-    </aside>
 
     <main class="flex-1 p-8 overflow-y-auto">
 
  
 
-        <section id="view-hunter" class="tool-view">
+        <section id="view-hunter" class="">
             <div class="bg-yellow-400 text-black p-8 rounded-3xl mb-8">
                 <h2 class="text-4xl mb-4 uppercase">Trend Hunter</h2>
                 <p class="font-bold">Use AI to scan what's poppin' on the web. Don't build a flop!</p>
